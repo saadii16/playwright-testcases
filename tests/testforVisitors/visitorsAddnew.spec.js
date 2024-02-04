@@ -1,0 +1,32 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://portal.ndesks.com/');
+  await page.goto('https://portal.ndesks.com/login');
+  await page.getByPlaceholder('john@example.com').click();
+  await page.getByPlaceholder('john@example.com').fill('saadali.teczon+1@gmail.com');
+  await page.getByLabel('Password').click();
+  await page.getByLabel('Password').fill('saad.ali');
+  await page.getByRole('button', { name: 'Sign in' }).click();
+  await page.pause();
+  await page.getByText('id-cardVisitors').click();
+  await page.getByRole('link', { name: 'Registration' }).first().click();
+  await page.getByRole('link', { name: 'Add New Visitor' }).click();
+  await page.getByPlaceholder('Enter Visitor\'s Name').click();
+  await page.getByPlaceholder('Enter Visitor\'s Name').fill('ahmad');
+  await page.getByPlaceholder('Enter Visitor\'s Company').click();
+  await page.getByPlaceholder('Enter Visitor\'s Company').fill('teczon');
+  await page.getByPlaceholder('Enter Visitor\'s Email').click();
+  await page.getByPlaceholder('Enter Visitor\'s Email').fill('example@gmail.com');
+  await page.getByPlaceholder('Enter Visitor\'s Phone No').click();
+  await page.getByPlaceholder('Enter Visitor\'s Phone No').fill('0303484828237');
+  await page.getByPlaceholder('Person You Are Visiting').click();
+  await page.getByPlaceholder('Person You Are Visiting').fill('kamran');
+  await page.getByPlaceholder('Purpose of Visit').click();
+  await page.getByPlaceholder('Purpose of Visit').fill('meeting');
+  await page.locator('input[name="expected_visit_datetime"]').click();
+  await page.locator('input[name="expected_visit_datetime"]').fill('11/25/2023, 12:42:00 PM');
+  await page.getByPlaceholder('Enter Location').click();
+  await page.getByPlaceholder('Enter Location').fill('teczon');
+  await page.getByRole('button', { name: 'Add Visitor' }).click();
+});
